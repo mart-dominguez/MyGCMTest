@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1026410245044",
+    "firebase_url": "https://test-gcm-e21ac.firebaseio.com",
+    "project_id": "test-gcm-e21ac",
+    "storage_bucket": "test-gcm-e21ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026410245044:android:c7d057fbc4f75877",
+        "android_client_info": {
+          "package_name": "ar.edu.md.cursos.android.mygcmtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026410245044-5jc9v0u3r19srv4v7t2qrlesdfvgm61h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxJedCyXsITaH7LUrVkpnVd9NpotOl21U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
