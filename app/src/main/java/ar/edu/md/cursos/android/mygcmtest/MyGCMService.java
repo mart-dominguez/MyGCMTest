@@ -9,17 +9,36 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class MyGCMService extends FirebaseMessagingService {
 
-    private static final String TAG = "MyFirebaseMsgService";
+    private static final String _TAG = "::MyFCMService";
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        sendNotification(remoteMessage.getNotification().getBody());
+       try{
+           Log.d(_TAG,"getCollapseKey"+remoteMessage.getCollapseKey());
+           Log.d(_TAG,"getFrom"+remoteMessage.getFrom());
+           Log.d(_TAG,"getMessageId"+remoteMessage.getMessageId());
+           Log.d(_TAG,"getMessageType"+remoteMessage.getMessageType());
+           Log.d(_TAG,"getTo"+remoteMessage.getTo());
+           Log.d(_TAG,"getData"+remoteMessage.getData());
+           Log.d(_TAG,"getSentTime"+remoteMessage.getSentTime());
+           Log.d(_TAG,"getTtl"+remoteMessage.getTtl());
+            if(remoteMessage.getNotification()!=null){
+                Log.d(_TAG,"getBody"+remoteMessage.getNotification().getBody());
+                Log.d(_TAG,"getTitle"+remoteMessage.getNotification().getTitle());
+
+            }
+           sendNotification(remoteMessage.getNotification().getBody());
+       }catch (Exception e ){
+           e.printStackTrace();
+       }
+
     }
 
     public MyGCMService() {
@@ -33,7 +52,7 @@ public class MyGCMService extends FirebaseMessagingService {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                //.setSmallIcon(R.drawable.ic_stat_ic_notification)
+                .setSmallIcon(android.R.drawable.stat_notify_missed_call)
                 .setContentTitle("FCM Message")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
